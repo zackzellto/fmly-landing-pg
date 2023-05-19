@@ -6,7 +6,9 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 app = Flask(__name__)
-CORS(app, origins='*', allow_headers='*', methods='*')
+CORS(app, resources={r'/*': {'origins': '*'}},
+     allow_headers={'Access-Control-Allow-Origin': '*'}
+     origins='*')
 
 load_dotenv()
 
